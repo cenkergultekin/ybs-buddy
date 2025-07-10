@@ -373,7 +373,7 @@ function SinavSimulasyonu() {
               {/* Timer */}
               <div className={`flex items-center space-x-3 ${timeLeft < 300 ? 'animate-pulse' : ''}`}>
                 <ClockIcon className={`w-6 h-6 ${timeLeft < 60 ? 'text-red-500' : 'text-blue-500'}`} />
-                <span className={`text-2xl font-mono font-bold ${
+                                      <span className={`text-2xl font-bold ${
                   timeLeft < 60 ? 'text-red-500' : timeLeft < 300 ? 'text-orange-500' : 'text-slate-800 dark:text-slate-200'
                 }`}>
                   {formatTime(timeLeft)}

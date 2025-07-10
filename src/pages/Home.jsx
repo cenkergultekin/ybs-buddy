@@ -2,34 +2,50 @@ import { GraduationCap, Users, Building2, Lightbulb, ArrowRight, TrendingUp, Shi
 
 const Home = () => {
   return (
-    <div className="pt-18 min-h-screen relative z-10">
-      {/* Premium Hero Section */}
-      <section className="py-16 pb-24 relative">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="min-h-screen relative">
+      {/* YBS Professional Hero Section */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-1/4 w-72 h-72 rounded-full opacity-20 blur-3xl"
+               style={{background: 'linear-gradient(135deg, var(--electric-blue), var(--teal-500))'}}></div>
+          <div className="absolute bottom-20 right-1/4 w-96 h-96 rounded-full opacity-15 blur-3xl"
+               style={{background: 'linear-gradient(135deg, var(--modern-purple), var(--accent-cyan))'}}></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-violet-50 dark:from-blue-950 dark:to-violet-950 rounded-full border border-blue-200/30 dark:border-blue-800/30 mb-8">
-              <Star className="h-4 w-4 text-blue-600 dark:text-blue-400 mr-2" />
-              <span className="text-sm font-medium text-primary-premium">Premium Learning Platform</span>
+            {/* Professional Badge */}
+            <div className="inline-flex items-center px-6 py-3 mb-8 feature-card">
+              <Star className="h-5 w-5 mr-3" style={{color: 'var(--electric-blue)'}} />
+              <span className="text-primary-premium">Yönetim Bilişim Sistemleri • Professional Platform</span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl gradient-premium mb-8 leading-tight">
-              YBS-Buddy Professional
+            {/* Main Heading */}
+            <h1 className="gradient-premium mb-8 max-w-4xl mx-auto">
+              Dijital Çağın Yönetim Liderleri
             </h1>
-            <p className="text-lg md:text-xl text-secondary-premium mb-12 max-w-3xl mx-auto leading-relaxed">
-              Yönetim Bilişim Sistemleri alanında liderlik yapmak isteyen profesyoneller için tasarlanmış 
-              gelişmiş eğitim platformu. Üniversite müfredatından endüstri standartlarına kadar kapsamlı öğrenme deneyimi.
+            
+            {/* Description */}
+            <p className="text-xl md:text-2xl text-premium max-w-4xl mx-auto mb-12 leading-relaxed">
+              <strong style={{color: 'var(--navy-700)'}}>Yönetim Bilişim Sistemleri</strong> alanında uzmanlaşarak, 
+              teknoloji ve stratejiyi harmanlayan geleceğin 
+              <span style={{color: 'var(--electric-blue)'}}> dijital liderlerini </span>
+              yetiştiren kapsamlı eğitim ekosistemi.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
-              <button className="btn-premium group">
-                <span className="flex items-center">
-                  Platformu Keşfet 
-                  <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+              <button className="btn-premium group px-10 py-4 text-lg font-bold">
+                <span className="flex items-center justify-center">
+                  Eğitime Başla
+                  <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 transition-transform" />
                 </span>
               </button>
-              <button className="btn-secondary-premium">
-                <span className="flex items-center">
+              <button className="btn-secondary-premium px-10 py-4 text-lg font-semibold">
+                <span className="flex items-center justify-center">
                   <TrendingUp className="mr-3 h-5 w-5" />
-                  Kariyer Rehberi
+                  Kariyer Yolları
                 </span>
               </button>
             </div>
@@ -37,87 +53,244 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Premium YBS Information */}
-      <section className="py-16 relative">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="card-premium">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl gradient-premium mb-6">
-                Yönetim Bilişim Sistemleri
-              </h2>
-              <p className="text-base text-secondary-premium max-w-2xl mx-auto">
-                Modern iş dünyasının dijital dönüşüm liderleri yetiştiren stratejik disiplin
-              </p>
+      {/* YBS Professional Definition - Featured Section */}
+      <section className="py-16 md:py-24 relative">
+        {/* Background Stripe */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+        <div className="absolute inset-0 opacity-30">
+          <div className="h-full w-full bg-gradient-to-r from-transparent via-blue-50/20 to-transparent"></div>
+        </div>
+        
+        {/* Decorative Lines */}
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-200/30 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-200/30 to-transparent"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12">
+            {/* Special Badge */}
+            <div className="inline-flex items-center px-8 py-4 mb-8 card-premium border-2" style={{borderColor: 'rgba(14, 165, 233, 0.2)'}}>
+              <div className="w-3 h-3 rounded-full mr-4" style={{
+                background: 'linear-gradient(135deg, var(--electric-blue), var(--teal-500))',
+                boxShadow: '0 0 12px rgba(14, 165, 233, 0.4)'
+              }}></div>
+              <span className="text-lg font-bold" style={{color: 'var(--navy-700)'}}>
+                Management Information Systems • Professional Discipline
+              </span>
             </div>
             
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="space-y-8">
-                <p className="text-lg md:text-xl text-premium leading-relaxed">
-                  <strong className="text-primary-premium">Yönetim Bilişim Sistemleri (YBS)</strong>, teknoloji ve iş stratejilerini 
-                  harmanlayarak kurumsal çözümler üreten, dijital çağın en prestijli mesleki alanlarından biridir. 
-                  Analitik düşünce ile yönetim vizyonunu birleştiren geleceğin liderlerini yetiştirmektedir.
+            <h2 className="gradient-premium mb-8 text-4xl md:text-5xl lg:text-6xl">
+              Yönetim Bilişim Sistemleri
+            </h2>
+            <p className="text-xl md:text-2xl text-premium max-w-4xl mx-auto leading-relaxed">
+              Modern iş dünyasının <strong style={{color: 'var(--electric-blue)'}}>dijital dönüşüm liderleri</strong> yetiştiren 
+              stratejik disiplin. <strong style={{color: 'var(--teal-600)'}}>Teknoloji ve yönetim biliminin</strong> mükemmel entegrasyonu.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Technology Gallery */}
+      <section className="py-12 md:py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center px-6 py-3 mb-6 feature-card">
+              <div className="w-2 h-2 rounded-full mr-3" style={{backgroundColor: 'var(--electric-blue)'}}></div>
+              <span className="text-sm font-medium" style={{color: 'var(--teal-600)'}}>Professional Technology Focus</span>
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4" style={{
+              background: 'linear-gradient(135deg, var(--navy-800) 0%, var(--electric-blue) 50%, var(--teal-600) 100%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent'
+            }}>
+              Teknoloji ve Yönetimin Buluşması
+            </h3>
+            <p className="text-lg text-premium max-w-2xl mx-auto">
+              <strong style={{color: 'var(--navy-700)'}}>Yapay zeka, siber güvenlik, veri analizi</strong> ve 
+              <strong style={{color: 'var(--electric-blue)'}}> kurumsal stratejilerin mükemmel uyumu</strong>
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            {[
+              {
+                icon: '🧠',
+                title: 'Yapay Zeka & ML',
+                description: 'Akıllı Sistemler',
+                gradient: 'from-purple-500 to-indigo-600'
+              },
+              {
+                icon: '🔐',
+                title: 'Siber Güvenlik',
+                description: 'Kurumsal Koruma',
+                gradient: 'from-red-500 to-pink-600'
+              },
+              {
+                icon: '📊',
+                title: 'Veri Bilimi',
+                description: 'İş Zekası',
+                gradient: 'from-blue-500 to-cyan-600'
+              },
+              {
+                icon: '🏢',
+                title: 'Kurumsal Yönetim',
+                description: 'Stratejik Liderlik',
+                gradient: 'from-emerald-500 to-teal-600'
+              },
+              {
+                icon: '⚡',
+                title: 'Dijital Dönüşüm',
+                description: 'İnovasyon',
+                gradient: 'from-yellow-500 to-orange-600'
+              },
+              {
+                icon: '🌐',
+                title: 'Bulut Teknolojileri',
+                description: 'Ölçeklenebilir Çözümler',
+                gradient: 'from-sky-500 to-blue-600'
+              },
+              {
+                icon: '🔧',
+                title: 'Yazılım Mimarisi',
+                description: 'Sistem Tasarımı',
+                gradient: 'from-violet-500 to-purple-600'
+              },
+              {
+                icon: '📈',
+                title: 'İş Analizi',
+                description: 'Performans Optimizasyonu',
+                gradient: 'from-green-500 to-emerald-600'
+              }
+            ].map((item, index) => (
+              <div 
+                key={index}
+                className="group relative feature-card text-center p-6 cursor-pointer transform transition-all duration-500 hover:scale-110 hover:z-10"
+              >
+                {/* Background Gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 rounded-20 transition-opacity duration-500`}></div>
+                
+                {/* Icon */}
+                <div className="text-4xl md:text-5xl mb-4 transform group-hover:scale-125 transition-transform duration-300">
+                  {item.icon}
+                </div>
+                
+                {/* Content */}
+                <h4 className="text-sm md:text-base font-bold text-primary-premium mb-2 group-hover:text-electric-blue transition-colors duration-300">
+                  {item.title}
+                </h4>
+                <p className="text-xs md:text-sm text-premium opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                  {item.description}
                 </p>
                 
-                <div className="grid gap-6">
-                  <div className="feature-card">
+                {/* Hover Effect Circle */}
+                <div className="absolute inset-0 rounded-20 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* YBS Comprehensive Information - Compact */}
+      <section className="py-12 md:py-16 relative">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div className="card-premium">
+            {/* Section Header - Compact */}
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center px-4 py-2 mb-4 feature-card">
+                <Building2 className="h-4 w-4 mr-2" style={{color: 'var(--teal-600)'}} />
+                <span className="text-base font-semibold text-primary-premium">Akademik Mükemmellik & Kariyer Vizyonu</span>
+              </div>
+            </div>
+            
+            <div className="grid lg:grid-cols-2 gap-8 items-start">
+              {/* Left Column - Academic Information */}
+              <div className="space-y-4">
+                <p className="text-base text-premium leading-relaxed mb-6">
+                  <strong style={{color: 'var(--navy-700)'}}>Yönetim Bilişim Sistemleri</strong>, teknoloji ve iş stratejilerini 
+                  harmanlayarak <strong style={{color: 'var(--electric-blue)'}}> analitik düşünce ile yönetim vizyonunu birleştiren </strong>
+                  geleceğin liderlerini yetiştirmektedir.
+                </p>
+                
+                <div className="space-y-4">
+                  <div className="feature-card group">
                     <div className="flex items-start space-x-4">
-                      <div className="icon-premium">
-                        <GraduationCap className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110">
+                        <GraduationCap className="h-6 w-6 text-white" />
                       </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-primary-premium mb-2">Akademik Gelişim</h3>
-                        <p className="text-secondary-premium">1990'lı yıllardan bu yana Türkiye'de sürekli büyüyen ve gelişen akademik bir disiplin.</p>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-primary-premium mb-2">Akademik Mükemmellik</h3>
+                        <p className="text-sm text-premium">1990'lı yıllardan bu yana Türkiye'de sürekli büyüyen ve gelişen 
+                        <strong style={{color: 'var(--teal-600)'}}> stratejik öneme sahip </strong> akademik disiplin.</p>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="feature-card">
+                  <div className="feature-card group">
                     <div className="flex items-start space-x-4">
-                      <div className="icon-premium">
-                        <Building2 className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                      <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110">
+                        <Building2 className="h-6 w-6 text-white" />
                       </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-primary-premium mb-2">Geniş Akademik Ağ</h3>
-                        <p className="text-secondary-premium">Türkiye'de <strong className="text-accent-premium">50'den fazla</strong> prestijli üniversitede aktif programa sahip.</p>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-primary-premium mb-2">Geniş Akademik Ekosistem</h3>
+                        <p className="text-sm text-premium">Türkiye'de <strong style={{color: 'var(--electric-blue)'}}>50'den fazla</strong> 
+                        prestijli üniversitede aktif programa sahip güçlü akademik ağ.</p>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="feature-card">
+                  <div className="feature-card group">
                     <div className="flex items-start space-x-4">
-                      <div className="icon-premium">
-                        <Users className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110">
+                        <Users className="h-6 w-6 text-white" />
                       </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-primary-premium mb-2">Premium Kariyer Fırsatları</h3>
-                        <p className="text-secondary-premium">
-                          Sistem mimarlığı, dijital strateji, iş analizi, veri bilimi, 
-                          teknoloji yönetimi gibi yüksek katma değerli pozisyonlar.
-                        </p>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-primary-premium mb-2">Üst Düzey Kariyer Fırsatları</h3>
+                        <p className="text-sm text-premium">Sistem mimarlığı, dijital strateji, iş analizi, veri bilimi, 
+                        teknoloji yönetimi gibi <strong style={{color: 'var(--teal-600)'}}>yüksek katma değerli</strong> pozisyonlar.</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <div className="card-premium bg-gradient-to-br from-blue-50/50 to-violet-100/50 dark:from-blue-950/50 dark:to-violet-900/50 border border-blue-200/30 dark:border-blue-800/30">
-                <div className="text-center space-y-8">
-                  <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-100 to-violet-100 dark:from-blue-900 dark:to-violet-900 rounded-full flex items-center justify-center shadow-lg">
-                    <Lightbulb className="h-16 w-16 text-blue-600 dark:text-blue-400" />
+              {/* Right Column - Professional Focus Areas */}
+              <div className="space-y-4">
+                <div className="feature-card group">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110">
+                      <Lightbulb className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-primary-premium mb-2">Teknoloji Liderliği</h3>
+                      <p className="text-sm text-premium">Gelişen teknolojileri iş süreçlerine entegre eden, 
+                      <strong style={{color: 'var(--electric-blue)'}}> teknoloji vizyoneri </strong> yaklaşım.</p>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-primary-premium">
-                    Uzmanlık Alanları
-                  </h3>
-                  <div className="grid grid-cols-2 gap-4 text-left">
-                    {[
-                      'Kurumsal Yönetim', 'Bilgi Teknolojileri', 'Sistem Mimarisi', 'Veri Bilimi',
-                      'Proje Liderliği', 'E-İş Stratejileri', 'Dijital Dönüşüm', 'İş Zekası & Analitik'
-                    ].map((item, index) => (
-                      <div key={index} className="flex items-center space-x-2">
-                        <Shield className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-                        <span className="text-premium text-sm font-medium">{item}</span>
-                      </div>
-                    ))}
+                </div>
+                
+                <div className="feature-card group">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110">
+                      <TrendingUp className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-primary-premium mb-2">Stratejik Yönetim Vizyonu</h3>
+                      <p className="text-sm text-premium">Kurumsal hedefleri teknoloji ile buluşturan, 
+                      <strong style={{color: 'var(--teal-600)'}}> stratejik düşünce </strong> becerileri.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="feature-card group">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110">
+                      <Star className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-primary-premium mb-2">İnovasyon & Dönüşüm</h3>
+                      <p className="text-sm text-premium">Organizasyonlarda dijital dönüşümü yöneten, 
+                      <strong style={{color: 'var(--electric-blue)'}}> inovasyon odaklı </strong> liderlik anlayışı.</p>
+                    </div>
                   </div>
                 </div>
               </div>

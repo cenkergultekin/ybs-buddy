@@ -5,32 +5,22 @@ import {
   XMarkIcon,
   SunIcon,
   MoonIcon,
-  ComputerDesktopIcon,
   BookOpenIcon,
   AcademicCapIcon,
   PencilSquareIcon,
-  UserGroupIcon,
-  BriefcaseIcon,
   HomeIcon,
-  SparklesIcon
+  BriefcaseIcon,
+  ChevronRightIcon
 } from '@heroicons/react/24/outline';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState('blue');
   const location = useLocation();
-
-  const themes = {
-    blue: { name: 'Mavi', primary: '#3b82f6', secondary: '#8b5cf6' },
-    purple: { name: 'Mor', primary: '#8b5cf6', secondary: '#ec4899' },
-    green: { name: 'Yeşil', primary: '#10b981', secondary: '#3b82f6' }
-  };
 
   // Dark mode toggle
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
-    const savedColorTheme = localStorage.getItem('colorTheme') || 'blue';
     
     if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       setIsDark(true);
@@ -39,9 +29,6 @@ function Navbar() {
       setIsDark(false);
       document.documentElement.classList.remove('dark');
     }
-    
-    setCurrentTheme(savedColorTheme);
-    document.body.className = `theme-${savedColorTheme} ${document.body.className.replace(/theme-\w+/g, '')}`;
   }, []);
 
   const toggleDarkMode = () => {
@@ -57,159 +44,161 @@ function Navbar() {
     }
   };
 
-  const changeColorTheme = (theme) => {
-    setCurrentTheme(theme);
-    localStorage.setItem('colorTheme', theme);
-    document.body.className = `theme-${theme} ${document.body.className.replace(/theme-\w+/g, '')}`;
-  };
-
   const navigation = [
     { name: 'Ana Sayfa', href: '/', icon: HomeIcon, current: location.pathname === '/' },
     { name: 'Ders Notları', href: '/ders-notlari', icon: BookOpenIcon, current: location.pathname === '/ders-notlari' },
     { name: 'Sınav Simülasyonu', href: '/sinav-simulasyonu', icon: AcademicCapIcon, current: location.pathname === '/sinav-simulasyonu' },
-    { name: 'Not Alma', href: '/not-alma', icon: PencilSquareIcon, current: location.pathname === '/not-alma' },
-    { name: 'Mezun Tavsiyeleri', href: '/mezun-tavsiyeleri', icon: UserGroupIcon, current: location.pathname === '/mezun-tavsiyeleri' },
-    { name: 'Staj İlanları', href: '/staj-ilanlari', icon: BriefcaseIcon, current: location.pathname === '/staj-ilanlari' }
+    { name: 'Not Alanı', href: '/not-alani', icon: PencilSquareIcon, current: location.pathname === '/not-alani' }
   ];
 
   const currentPage = navigation.find(item => item.current);
 
+  // Body scroll lock for mobile menu
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   return (
     <>
-      <nav className="nav-modern rounded-2xl mx-4 mt-4 px-8 py-5">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center">
+      {/* Mobile Menu Backdrop */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+      
+      <nav className="navbar-professional">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-14 lg:h-16">
             
-            {/* Logo & Brand */}
-            <Link to="/" className="flex items-center space-x-4 group">
-              <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-                  <SparklesIcon className="w-6 h-6 text-white" />
+            {/* Sol: Logo + Brand Name */}
+            <div className="flex items-center space-x-3">
+              <Link to="/" className="flex items-center group z-50">
+                <div className="relative">
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                    <BriefcaseIcon className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
+                  </div>
+                  <div className="absolute -inset-1 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-2xl opacity-0 group-hover:opacity-20 blur transition-all duration-300"></div>
                 </div>
-                <div className="absolute -inset-1 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-xl opacity-0 group-hover:opacity-20 blur transition-all duration-300"></div>
-              </div>
-              <div className="hidden sm:block">
-                <h1 className="text-xl font-black text-gradient">YBS Buddy</h1>
-                <p className="text-xs text-slate-500 dark:text-slate-400 -mt-1">Akıllı Öğrenme</p>
-              </div>
-            </Link>
-
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`nav-item mobile-friendly ${item.current ? 'active' : ''}`}
-                >
-                  <item.icon className="w-4 h-4 mr-2" />
-                  <span className="text-sm font-medium">{item.name}</span>
-                </Link>
-              ))}
+              </Link>
+              <h1 className="text-lg sm:text-xl lg:text-2xl font-black whitespace-nowrap gradient-premium">YBS BUDDY</h1>
             </div>
 
-            {/* Theme & Settings */}
-            <div className="flex items-center space-x-4">
-              
-              {/* Color Theme Selector */}
-              <div className="hidden md:flex items-center space-x-2 glass-card dark:glass-card-dark rounded-xl px-3 py-2">
-                {Object.entries(themes).map(([key, theme]) => (
-                  <button
-                    key={key}
-                    onClick={() => changeColorTheme(key)}
-                    className={`w-6 h-6 rounded-full transition-all duration-300 hover:scale-110 ${
-                      currentTheme === key ? 'ring-2 ring-white/60 scale-110' : ''
-                    }`}
-                    style={{ background: `linear-gradient(135deg, ${theme.primary}, ${theme.secondary})` }}
-                    title={theme.name}
-                  />
-                ))}
+            {/* Orta: Navigation - Tam Ortada */}
+            <div className="hidden lg:flex items-center justify-center flex-1">
+              {/* XL Desktop Navigation - Full Text */}
+              <div className="hidden xl:flex items-center">
+                <div className="flex items-center bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-xl px-1.5 py-1.5 shadow-lg border border-white/20 dark:border-slate-700/50">
+                  {navigation.map((item, index) => (
+                    <React.Fragment key={item.name}>
+                      <Link
+                        to={item.href}
+                        className={`navbar-item-spaced ${item.current ? 'active' : ''}`}
+                      >
+                        <item.icon className="w-4 h-4 mr-2" />
+                        <span className="text-sm font-medium whitespace-nowrap">{item.name}</span>
+                      </Link>
+                      {index < navigation.length - 1 && (
+                        <div className="navbar-separator">
+                          <ChevronRightIcon className="w-3 h-3 text-slate-300 dark:text-slate-600" />
+                        </div>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </div>
               </div>
 
+              {/* Large Desktop Navigation - Short Text */}
+              <div className="flex xl:hidden items-center">
+                <div className="flex items-center bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-xl px-1.5 py-1.5 shadow-lg border border-white/20 dark:border-slate-700/50">
+                  {navigation.map((item, index) => (
+                    <React.Fragment key={item.name}>
+                      <Link
+                        to={item.href}
+                        className={`navbar-item-medium ${item.current ? 'active' : ''}`}
+                        title={item.name}
+                      >
+                        <item.icon className="w-4 h-4" />
+                        <span className="text-xs font-medium ml-1.5">{item.name.split(' ')[0]}</span>
+                      </Link>
+                      {index < navigation.length - 1 && (
+                        <div className="navbar-separator-small">
+                          <div className="w-0.5 h-0.5 bg-slate-300 dark:bg-slate-600 rounded-full"></div>
+                        </div>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Sağ: Controls */}
+            <div className="flex items-center space-x-2 z-50">
               {/* Dark Mode Toggle */}
               <button
                 onClick={toggleDarkMode}
-                className="mobile-friendly p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 group"
+                className="p-2 rounded-lg bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl hover:bg-white dark:hover:bg-slate-700 transition-all duration-300 group shadow-lg border border-white/20 dark:border-slate-700/50"
                 title={isDark ? 'Light Mode' : 'Dark Mode'}
               >
                 {isDark ? (
-                  <SunIcon className="w-5 h-5 text-yellow-500 group-hover:rotate-180 transition-transform duration-300" />
+                  <SunIcon className="w-4 h-4 text-yellow-500 group-hover:rotate-180 transition-transform duration-500" />
                 ) : (
-                  <MoonIcon className="w-5 h-5 text-slate-600 group-hover:rotate-12 transition-transform duration-300" />
+                  <MoonIcon className="w-4 h-4 text-slate-600 group-hover:rotate-12 transition-transform duration-300" />
                 )}
               </button>
 
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden mobile-friendly p-2 rounded-xl glass-card dark:glass-card-dark hover:scale-105 transition-all duration-300"
+                className="lg:hidden p-2 rounded-lg bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl hover:bg-white dark:hover:bg-slate-700 transition-all duration-300 shadow-lg border border-white/20 dark:border-slate-700/50"
               >
                 {isOpen ? (
-                  <XMarkIcon className="w-6 h-6 text-slate-600 dark:text-slate-400" />
+                  <XMarkIcon className="w-5 h-5 text-slate-600 dark:text-slate-400" />
                 ) : (
-                  <Bars3Icon className="w-6 h-6 text-slate-600 dark:text-slate-400" />
+                  <Bars3Icon className="w-5 h-5 text-slate-600 dark:text-slate-400" />
                 )}
               </button>
             </div>
           </div>
-
-          {/* Current Page Indicator */}
-          {currentPage && (
-            <div className="mt-4 flex items-center space-x-2 text-sm text-slate-600 dark:text-slate-400">
-              <currentPage.icon className="w-4 h-4" />
-              <span>→</span>
-              <span className="font-medium text-slate-800 dark:text-slate-200">{currentPage.name}</span>
-            </div>
-          )}
         </div>
 
         {/* Mobile Navigation Menu */}
-        <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-96 opacity-100 mt-6' : 'max-h-0 opacity-0'
+        <div className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+          isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="glass-card dark:glass-card-dark rounded-2xl p-4 space-y-2">
-            
-            {/* Mobile Color Theme Selector */}
-            <div className="flex items-center justify-center space-x-3 mb-4 pb-4 border-b border-slate-200/50 dark:border-slate-700/50">
-              <span className="text-sm text-slate-600 dark:text-slate-400">Tema:</span>
-              {Object.entries(themes).map(([key, theme]) => (
-                <button
-                  key={key}
-                  onClick={() => changeColorTheme(key)}
-                  className={`w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 ${
-                    currentTheme === key ? 'ring-2 ring-white/60 scale-110' : ''
-                  }`}
-                  style={{ background: `linear-gradient(135deg, ${theme.primary}, ${theme.secondary})` }}
-                  title={theme.name}
-                />
-              ))}
-            </div>
+          <div className="px-4 sm:px-6 lg:px-8 pb-6">
+            <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-white/20 dark:border-slate-700/50 mt-4">
 
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                onClick={() => setIsOpen(false)}
-                className={`nav-item w-full justify-start mobile-friendly ${item.current ? 'active' : ''}`}
-              >
-                <item.icon className="w-5 h-5 mr-3" />
-                <span className="font-medium">{item.name}</span>
-                {item.current && (
-                  <div className="ml-auto w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></div>
-                )}
-              </Link>
-            ))}
+              {/* Mobile Navigation Items */}
+              <div className="space-y-2">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`mobile-nav-item ${item.current ? 'active' : ''}`}
+                  >
+                    <item.icon className="w-6 h-6 mr-4" />
+                    <span className="font-medium">{item.name}</span>
+                    {item.current && (
+                      <div className="ml-auto w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+                    )}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </nav>
-
-      {/* Mobile Navigation Overlay */}
-      {isOpen && (
-        <div 
-          className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
     </>
   );
 }
