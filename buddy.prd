@@ -1,0 +1,155 @@
+YBS-Buddy Ürün Gereksinim Dokümanı (PRD)
+Versiyon: 1.0
+Tarih: 10 Temmuz 2025
+Hazırlayan: [Cenker Gültekin , Berkay Demircanlı]
+
+1. Giriş
+Bu doküman, Yönetim Bilişim Sistemleri (YBS) öğrencilerine yönelik bir eğitim platformu olan "YBS-Buddy" uygulamasının gereksinimlerini detaylandırmaktadır. Amacımız, öğrencilerin kendi üniversitelerinin müfredatına özel içeriklere erişebildiği, ders çalışabildiği, sınavlara hazırlanabildiği ve kişisel notlarını yönetebildiği kapsamlı bir dijital asistan sunmaktır.
+
+2. Genel Bakış
+YBS-Buddy, YBS bölümünde okuyan üniversite öğrencileri için tasarlanmış, kişiselleştirilmiş bir öğrenme deneyimi sunan bir web uygulamasıdır. Uygulama, öğrencilerin akademik başarılarını artırmayı ve kariyer gelişimlerine destek olmayı hedeflemektedir.
+
+3. Özellikler (Features)
+3.1. HeadBar Özellikleri
+Uygulamanın üst kısmında (Header Bar) bulunacak ana navigasyon menüsü ve özellikleri:
+
+Anasayfa: Uygulamanın ana giriş noktası.
+
+Ders Notları: Üniversite ve ders bazında notlara erişim.
+
+Sınav Simülasyonu: Derslere özel sınavlara hazırlık modülü.
+
+Kaynak Önerileri: Ders ve genel YBS kaynakları.
+
+Bilgilendirme Alanı: Duyurular ve etkinlikler.
+
+Mentor Alanı: Mentorluk ve soru-cevap platformu.
+
+Not Alanı: Kullanıcıya özel not tutma alanı.
+
+İlerleme Takibi: Öğrencinin platformdaki ilerlemesini gösteren panel.
+
+Çapraz Disipliner İçerik: YBS'nin farklı alanlarla ilişkisini gösteren içerikler.
+
+YBS Staj: (Şimdilik işlevsiz, sadece menüde yer alacak.)
+
+Mezun Tavsiyesi: Mezunların ve akademisyenlerin tavsiyelerini içeren bölüm.
+
+3.2. Detaylı Özellik Açıklamaları
+3.2.1. Anasayfa
+Amaç: Kullanıcıları uygulamaya tanıtmak, YBS hakkında temel bilgiler sunmak ve ana özelliklere yönlendirmek.
+
+İçerik:
+
+Başlık Alanı: "YBS-Buddy'ye Hoş Geldiniz!" ve uygulamanın amacını belirten kısa bir açıklama.
+
+"YBS Nedir?" Bilgilendirme Alanı:
+
+YBS'nin tanımı, kapsamı ve disiplinlerarası yapısı.
+
+YBS'nin Türkiye'ye gelişi (yıl bilgisi).
+
+Türkiye'deki YBS bölümü olan üniversite sayısı.
+
+YBS mezunlarının kariyer olanakları ve sektördeki rolleri.
+
+Görsel: "YBS Nedir?" bölümünü destekleyen, bilgilendirici ve çekici bir görsel.
+
+Ekstra (Gelecek Özellik - Şimdilik Aksiyon Yok): Alan belirlemekte zorlananlar için yapay zeka destekli alan bulma platformu. Kişiyi tanımaya yönelik anketler yaparak öneriler sunar. Bu özellik şimdilik sadece bir yer tutucu olarak bulunacak, işlevsel olmayacak.
+
+3.2.2. Ders Notları
+Amaç: Öğrencilerin kendi üniversitelerine ve müfredatlarına özel ders notlarına erişimini sağlamak.
+
+İşlevsellik:
+
+Üniversite Seçimi: Kullanıcı, listeden kendi üniversitesini seçer.
+
+Sınıf Seviyesi Seçimi: Kullanıcı, (1. Sınıf, 2. Sınıf vb.) sınıf seviyesini seçer.
+
+Ders Seçimi: Seçilen üniversite ve sınıf seviyesine göre ilgili dersler listelenir ve kullanıcı dersi seçer.
+
+Ders İçeriği Görüntüleme: Seçilen dersin müfredatı veya genel içeriği görüntülenebilir.
+
+Eğitmen Notları: İlgili dersin hocasının adı belirtilerek, hocanın hazırladığı PDF formatındaki ders notları indirilebilir veya görüntülenebilir.
+
+Kendi Notunu Tutma Alanı: Ders notlarını okurken veya incelerken, kullanıcının Notion benzeri bir arayüzde kendi kişisel notlarını alabileceği, düzenleyebileceği ve kaydedebileceği entegre bir alan.
+
+AI Destekli Not Özetleme: Kullanıcının okuduğu ders notlarını veya kendi aldığı notları yapay zeka desteğiyle özetleme özelliği.
+
+"Sınav Simülasyonu" Yönlendirme: İlgili dersin sınav simülasyonu sayfasına doğrudan geçiş sağlayan bir buton veya bağlantı.
+
+3.2.3. Sınav Simülasyonu
+Amaç: Öğrencileri YBS derslerinin sınavlarına hazırlamak, pratik yapma imkanı sunmak.
+
+İşlevsellik:
+
+Anasayfadan Tıklanırsa:
+
+Kullanıcıdan Üniversite, Sınıf Seviyesi ve Ders seçimi istenir.
+
+Seçilen dersin notları, simülasyon başlamadan önce bir önizleme (preview) olarak görüntülenebilir.
+
+Sınav Türü Seçimi: Kullanıcı "Vize", "Final" veya "Hafta Aralığı Belirle" (örn: 1-5. haftalar arası konular) seçeneklerinden birini belirler.
+
+Ders Notları Sayfasından Tıklanırsa:
+
+Öğrencinin Ders Notları bölümünde en son baktığı veya işaretlediği ders otomatik olarak seçili gelir.
+
+Seçilen dersin notları yine bir önizleme olarak görüntülenebilir.
+
+Sınav Türü Seçimi: Kullanıcı "Vize", "Final" veya "Hafta Aralığı Belirle" seçeneklerinden birini belirler.
+
+Soru Formatları: Çoktan seçmeli, doğru-yanlış, boşluk doldurma gibi farklı soru tipleri desteklenecektir.
+
+Geri Bildirim: Sınav sonunda doğru/yanlış cevaplar ve çözümler gösterilir.
+
+3.2.4. Not Tutma Alanı
+Amaç: Kullanıcıların kişisel ders notlarını, projelerini ve fikirlerini düzenli bir şekilde saklamalarını sağlamak.
+
+İşlevsellik:
+
+Modüler Yapı: Anasayfadan bu alana geçildiğinde, notlar ders başlıklarına göre kümeler halinde düzenlenmiş, modüler ve estetik bir arayüzde sunulur.
+
+Notion Benzeri Deneyim: Metin düzenleme, başlıklar, listeler, kod blokları gibi temel formatlama seçenekleri sunan zengin metin editörü.
+
+Kaydetme/Düzenleme/Silme: Kullanıcı notlarını kaydedebilir, mevcut notları düzenleyebilir ve silebilir.
+
+Arama/Filtreleme: Notlar arasında başlığa veya içeriğe göre arama yapma imkanı (gelecekteki geliştirme).
+
+3.2.5. YBS Staj
+Amaç: YBS öğrencilerine staj imkanları hakkında bilgi vermek.
+
+İşlevsellik:
+
+Anasayfada bir menü öğesi veya özellik kartı olarak yer alacak, ancak uygulamanın ilk versiyonunda herhangi bir işlevselliği olmayacak (null). Gelecekte iş ilanları ve staj duyuruları entegre edilebilir.
+
+3.2.6. Mezun Tavsiyesi
+Amaç: YBS mezunları ve akademisyenlerin deneyimlerini ve tavsiyelerini öğrencilerle paylaşabileceği bir platform sunmak.
+
+İşlevsellik:
+
+Blok Yapısı: Twitter benzeri kısa, öz ve bilgilendirici tavsiye blokları.
+
+Kullanıcı Profilleri: Tavsiye veren mezun veya akademisyenin adını/profilini görüntüleyebilme.
+
+Etkileşim (Gelecek Özellik): Beğenme, yorum yapma veya paylaşma gibi temel sosyal medya etkileşimleri (şimdilik sadece görüntüleme).
+
+4. Kullanıcı Arayüzü (UI) ve Kullanıcı Deneyimi (UX) Hedefleri
+Temiz ve Modern Tasarım: Tailwind CSS ile minimalist, göz yormayan ve modern bir arayüz.
+
+Duyarlı Tasarım: Uygulama, mobil, tablet ve masaüstü cihazlarda sorunsuz çalışmalı ve tüm ekran boyutlarına uyum sağlamalıdır.
+
+Kolay Navigasyon: Kullanıcıların istedikleri bölümlere hızlı ve sezgisel bir şekilde ulaşabilmesi.
+
+Kişiselleştirme: Kullanıcıların kendi üniversitelerini seçerek ve notlarını özelleştirerek kişiselleştirilmiş bir deneyim yaşaması. Karanlık tema özelliği olsun.
+
+Ek olarak: Uygulama glassmorphism ve apple tasarım dizaynına uygun olabilir. Modern ve profesyonel olsun. Renkler buna göre kullanılsın.
+
+5. Teknik Gereksinimler
+Frontend: React.js
+
+Styling: Tailwind CSS
+
+Backend/Veritabanı: Firebase (Authentication ve Firestore)
+
+Dağıtım: Vercel
