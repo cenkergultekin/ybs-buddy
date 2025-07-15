@@ -8,8 +8,8 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
-dist-ssr
+frontend/dist
+frontend/dist-ssr
 *.local
 
 # Editor directories and files
@@ -26,4 +26,11 @@ dist-ssr
 # Vercel
 .vercel
 
-.vercel
+# Backend files (future)
+backend/.env
+backend/node_modules
+backend/dist
+
+# Temp files
+*.tmp
+.temp

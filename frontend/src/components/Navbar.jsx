@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Bars3Icon, 
   XMarkIcon,
@@ -10,13 +10,15 @@ import {
   PencilSquareIcon,
   HomeIcon,
   BriefcaseIcon,
-  ChevronRightIcon
+  ChevronRightIcon,
+  ClipboardDocumentListIcon
 } from '@heroicons/react/24/outline';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Dark mode toggle
   useEffect(() => {
@@ -46,12 +48,11 @@ function Navbar() {
 
   const navigation = [
     { name: 'Ana Sayfa', href: '/', icon: HomeIcon, current: location.pathname === '/' },
+    { name: 'Müfredat', href: '/mufredat', icon: ClipboardDocumentListIcon, current: location.pathname === '/mufredat' },
     { name: 'Ders Notları', href: '/ders-notlari', icon: BookOpenIcon, current: location.pathname === '/ders-notlari' },
     { name: 'Sınav Simülasyonu', href: '/sinav-simulasyonu', icon: AcademicCapIcon, current: location.pathname === '/sinav-simulasyonu' },
     { name: 'Not Alanı', href: '/not-alani', icon: PencilSquareIcon, current: location.pathname === '/not-alani' }
   ];
-
-  const currentPage = navigation.find(item => item.current);
 
   // Body scroll lock for mobile menu
   useEffect(() => {
@@ -76,18 +77,38 @@ function Navbar() {
         />
       )}
       
-      <nav className="navbar-professional">
+      <nav className={`navbar-professional ${isDark ? 'dark' : ''}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14 lg:h-16">
             
             {/* Sol: Logo + Brand Name */}
             <div className="flex items-center space-x-3">
-              <Link to="/" className="flex items-center group z-50">
-                <div className="relative">
-                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                    <BriefcaseIcon className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
-                  </div>
-                  <div className="absolute -inset-1 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-2xl opacity-0 group-hover:opacity-20 blur transition-all duration-300"></div>
+              <Link 
+                to="/" 
+                className="flex items-center group z-50"
+                style={{ pointerEvents: 'auto', position: 'relative', zIndex: 50 }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  console.log("Navigating to home");
+                  navigate("/");
+                }}
+              >
+                <div className="relative w-8 h-8 lg:w-10 lg:h-10 rounded-full overflow-hidden bg-transparent">
+                  <img 
+                    src="/u6718478283_A_minimal_professional_single-line_vector_icon_lo_f44348c4-9f8a-4c77-82f1-260b518d4b3b_0.png" 
+                    alt="YBS Buddy Logo" 
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-300 drop-shadow-lg dark:brightness-100 brightness-0 dark:invert-0 invert scale-150"
+                    style={{
+                      filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))'
+                    }}
+                    onError={(e) => {
+                      // Fallback to briefcase icon if image fails to load
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'block';
+                    }}
+                  />
+                  <BriefcaseIcon className="w-6 h-6 lg:w-8 lg:h-8 text-slate-600 dark:text-slate-400 group-hover:scale-105 transition-transform duration-300 drop-shadow-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" style={{ display: 'none' }} />
                 </div>
               </Link>
               <h1 className="text-lg sm:text-xl lg:text-2xl font-black whitespace-nowrap gradient-premium">YBS BUDDY</h1>
@@ -103,6 +124,13 @@ function Navbar() {
                       <Link
                         to={item.href}
                         className={`navbar-item-spaced ${item.current ? 'active' : ''}`}
+                        style={{ pointerEvents: 'auto', position: 'relative', zIndex: 10 }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          console.log(`XL Desktop navigating to: ${item.href}`);
+                          navigate(item.href);
+                        }}
                       >
                         <item.icon className="w-4 h-4 mr-2" />
                         <span className="text-sm font-medium whitespace-nowrap">{item.name}</span>
@@ -126,6 +154,13 @@ function Navbar() {
                         to={item.href}
                         className={`navbar-item-medium ${item.current ? 'active' : ''}`}
                         title={item.name}
+                        style={{ pointerEvents: 'auto', position: 'relative', zIndex: 10 }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          console.log(`Large Desktop navigating to: ${item.href}`);
+                          navigate(item.href);
+                        }}
                       >
                         <item.icon className="w-4 h-4" />
                         <span className="text-xs font-medium ml-1.5">{item.name.split(' ')[0]}</span>
@@ -184,8 +219,15 @@ function Navbar() {
                   <Link
                     key={item.name}
                     to={item.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      console.log(`Mobile navigating to: ${item.href}`);
+                      navigate(item.href);
+                      setIsOpen(false);
+                    }}
                     className={`mobile-nav-item ${item.current ? 'active' : ''}`}
+                    style={{ pointerEvents: 'auto', position: 'relative', zIndex: 10 }}
                   >
                     <item.icon className="w-6 h-6 mr-4" />
                     <span className="font-medium">{item.name}</span>
