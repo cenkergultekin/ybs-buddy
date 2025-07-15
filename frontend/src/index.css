@@ -26,6 +26,40 @@ body {
     transition: all 0.7s ease-in-out;
   }
   
+  /* Full screen editor mode - hide navbar completely */
+  body.fullscreen-editor {
+    padding-top: 0;
+  }
+  
+  body.fullscreen-editor .navbar-professional {
+    transform: translateY(-100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+  }
+  
+  /* Notion Editor Styles */
+  .notion-editor {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+  }
+  
+  .notion-tag {
+    @apply inline-flex items-center px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-md text-sm font-medium;
+  }
+  
+  .notion-title {
+    font-size: 24px !important;
+    font-weight: bold !important;
+    color: rgb(51 65 85) !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .dark .notion-title {
+    color: rgb(226 232 240) !important;
+  }
+  
   body.dark {
     background: var(--navy-900);
     background-image: 
@@ -663,5 +697,583 @@ body {
   .mobile-nav-item:hover {
     @apply shadow-md;
     transform: translateX(4px);
+  }
+
+  /* ================================================================
+     TEKNOLOJIK ARKAPLAN EFEKTLERİ
+     ================================================================ */
+
+  /* Ana arka plan katmanı - devre kartı ve teknoloji elementleri */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      /* Devre kartı çizgileri */
+      linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+      /* Diagonal çizgiler */
+      linear-gradient(45deg, transparent 48%, rgba(14, 165, 233, 0.02) 49%, rgba(14, 165, 233, 0.02) 51%, transparent 52%),
+      linear-gradient(-45deg, transparent 48%, rgba(139, 92, 246, 0.02) 49%, rgba(139, 92, 246, 0.02) 51%, transparent 52%),
+      /* Nokta deseni */
+      radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+    background-size: 
+      60px 60px,  /* Dikey çizgiler */
+      60px 60px,  /* Yatay çizgiler */
+      80px 80px,  /* Diagonal 1 */
+      80px 80px,  /* Diagonal 2 */
+      20px 20px;  /* Nokta deseni */
+    background-position: 
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.4;
+    animation: circuitShift 25s linear infinite;
+  }
+
+  /* Dark mode için arkaplan ayarları */
+  body.dark::after {
+    background-image: 
+      linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+      linear-gradient(45deg, transparent 48%, rgba(59, 130, 246, 0.04) 49%, rgba(59, 130, 246, 0.04) 51%, transparent 52%),
+      linear-gradient(-45deg, transparent 48%, rgba(139, 92, 246, 0.04) 49%, rgba(139, 92, 246, 0.04) 51%, transparent 52%),
+      radial-gradient(circle at 50% 50%, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    opacity: 0.6;
+  }
+
+  /* Teknoloji ikonları ve şekiller katmanı */
+  body {
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      /* Bulut şekilleri */
+      radial-gradient(ellipse 120px 60px at 15% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 80px 40px at 85% 30%, rgba(14, 165, 233, 0.04) 0%, transparent 70%),
+      radial-gradient(ellipse 100px 50px at 70% 80%, rgba(139, 92, 246, 0.04) 0%, transparent 70%),
+      
+      /* Dalgamsı şekiller */
+      radial-gradient(ellipse 300px 100px at 20% 60%, rgba(59, 130, 246, 0.03) 0%, transparent 60%),
+      radial-gradient(ellipse 250px 80px at 80% 40%, rgba(14, 165, 233, 0.03) 0%, transparent 60%),
+      
+      /* Soyut geometrik şekiller */
+      conic-gradient(from 45deg at 95% 15%, transparent 0deg, rgba(139, 92, 246, 0.02) 90deg, transparent 180deg),
+      conic-gradient(from 225deg at 5% 85%, transparent 0deg, rgba(59, 130, 246, 0.02) 90deg, transparent 180deg);
+    
+    animation: backgroundFloat 20s ease-in-out infinite, technoPulse 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Katmanlı gölge efektleri */
+  .section-premium::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      /* Çok hafif degrade gölgeler */
+      linear-gradient(135deg, rgba(59, 130, 246, 0.02) 0%, transparent 30%, rgba(139, 92, 246, 0.02) 70%, transparent 100%),
+      linear-gradient(-45deg, transparent 0%, rgba(14, 165, 233, 0.015) 50%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Parallax efekt için partiküller */
+  .tech-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  /* Partiküller için CSS - farklı boyutlar ve şekiller */
+  .tech-particles::before,
+  .tech-particles::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.3), rgba(14, 165, 233, 0.2));
+    border-radius: 50%;
+    animation: particleFloat 15s linear infinite;
+  }
+
+  /* Farklı partikül şekilleri */
+  .tech-particles:nth-child(2)::before,
+  .tech-particles:nth-child(2)::after {
+    width: 1px;
+    height: 6px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.4), transparent);
+  }
+
+  .tech-particles:nth-child(3)::before,
+  .tech-particles:nth-child(3)::after {
+    width: 3px;
+    height: 3px;
+    background: linear-gradient(45deg, rgba(14, 165, 233, 0.2), rgba(59, 130, 246, 0.3));
+    border-radius: 0;
+    transform: rotate(45deg);
+  }
+
+  .tech-particles::before {
+    top: -10px;
+    left: 20%;
+    animation-delay: -5s;
+  }
+
+  .tech-particles::after {
+    top: -10px;
+    left: 80%;
+    animation-delay: -10s;
+    animation-duration: 20s;
+  }
+
+  /* Veri akışı çizgileri */
+  .tech-particles:nth-child(2)::before {
+    left: 10%;
+    animation-name: dataFlow;
+    animation-duration: 25s;
+    animation-delay: -3s;
+  }
+
+  .tech-particles:nth-child(2)::after {
+    left: 90%;
+    animation-name: dataFlow;
+    animation-duration: 30s;
+    animation-delay: -15s;
+  }
+
+  .tech-particles:nth-child(3)::before {
+    left: 60%;
+    animation-name: hexFloat;
+    animation-duration: 20s;
+    animation-delay: -8s;
+  }
+
+  .tech-particles:nth-child(3)::after {
+    left: 40%;
+    animation-name: hexFloat;
+    animation-duration: 35s;
+    animation-delay: -20s;
+  }
+
+
+
+
+
+
+
+
+
+  /* Mat, dumanlı doku katmanı */
+  .card-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      /* Dumanlı doku */
+      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+      /* Mat overlay */
+      linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .dark .card-premium::before {
+    background: 
+      radial-gradient(circle at 30% 20%, rgba(148, 163, 184, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(148, 163, 184, 0.03) 0%, rgba(148, 163, 184, 0.01) 100%);
+  }
+
+  /* Işık dalgalanması animasyonu */
+  .light-wave {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      transparent 40%, 
+      rgba(59, 130, 246, 0.02) 50%, 
+      transparent 60%
+    );
+    animation: lightWave 12s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* CSS Animasyonları */
+  @keyframes circuitShift {
+    0%, 100% { 
+      transform: translate(0px, 0px); 
+    }
+    25% { 
+      transform: translate(2px, -2px); 
+    }
+    50% { 
+      transform: translate(-1px, 1px); 
+    }
+    75% { 
+      transform: translate(1px, -1px); 
+    }
+  }
+
+  @keyframes backgroundFloat {
+    0%, 100% { 
+      transform: translate(0px, 0px) scale(1); 
+    }
+    33% { 
+      transform: translate(15px, -10px) scale(1.02); 
+    }
+    66% { 
+      transform: translate(-10px, 15px) scale(0.98); 
+    }
+  }
+
+  @keyframes technoPulse {
+    0%, 100% { 
+      filter: brightness(1) hue-rotate(0deg);
+    }
+    50% { 
+      filter: brightness(1.1) hue-rotate(10deg);
+    }
+  }
+
+  @keyframes particleFloat {
+    0% {
+      transform: translateY(100vh) translateX(0px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10px) translateX(20px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes lightWave {
+    0%, 100% { 
+      transform: translateX(-100%) skewX(-15deg);
+      opacity: 0;
+    }
+    25% { 
+      transform: translateX(0%) skewX(-15deg);
+      opacity: 0.3;
+    }
+    75% { 
+      transform: translateX(100%) skewX(-15deg);
+      opacity: 0.3;
+    }
+    100% { 
+      transform: translateX(200%) skewX(-15deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes dataFlow {
+    0% {
+      transform: translateY(100vh) translateX(0px) scaleY(0);
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+      transform: translateY(90vh) translateX(0px) scaleY(1);
+    }
+    50% {
+      transform: translateY(50vh) translateX(10px) scaleY(1.5);
+    }
+    95% {
+      opacity: 1;
+      transform: translateY(10vh) translateX(-5px) scaleY(0.8);
+    }
+    100% {
+      transform: translateY(-10px) translateX(0px) scaleY(0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes hexFloat {
+    0% {
+      transform: translateY(100vh) translateX(0px) rotate(0deg) scale(0.5);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(90vh) translateX(5px) rotate(45deg) scale(1);
+    }
+    50% {
+      transform: translateY(50vh) translateX(-10px) rotate(180deg) scale(1.2);
+    }
+    90% {
+      opacity: 1;
+      transform: translateY(10vh) translateX(15px) rotate(315deg) scale(0.8);
+    }
+    100% {
+      transform: translateY(-10px) translateX(0px) rotate(360deg) scale(0);
+      opacity: 0;
+    }
+  }
+
+
+
+
+
+  /* Responsive teknoloji efektleri */
+  @media (max-width: 768px) {
+    body::after {
+      background-size: 
+        40px 40px,
+        40px 40px,
+        60px 60px,
+        60px 60px,
+        15px 15px;
+      opacity: 0.3;
+    }
+
+    body.dark::after {
+      opacity: 0.4;
+    }
+
+    .tech-particles::before,
+    .tech-particles::after {
+      display: none; /* Mobilde performans için devre dışı */
+    }
+
+  }
+
+  /* Performans optimizasyonu */
+  @media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after,
+    .light-wave,
+    .tech-particles::before,
+    .tech-particles::after {
+      animation: none;
+    }
+  }
+
+  /* ================================================================
+     NOTION-STYLE EDITOR
+     ================================================================ */
+
+  .notion-editor {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: rgb(55, 53, 47);
+  }
+
+  .dark .notion-editor {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .notion-line {
+    margin: 0;
+    padding: 3px 0;
+    position: relative;
+    outline: none;
+    border: none;
+    background: transparent;
+    min-height: 1.5em;
+  }
+
+  .notion-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 0.5em 0;
+    padding: 0.25em 0;
+    color: rgb(55, 53, 47);
+    outline: none;
+    border: none;
+    background: transparent;
+  }
+
+  .dark .notion-title {
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .notion-editor p {
+    margin: 0.5em 0;
+    padding: 0.125em 0;
+    min-height: 1.5em;
+  }
+
+  .notion-editor div {
+    margin: 0.25em 0;
+    min-height: 1.5em;
+  }
+
+  .notion-editor h1 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin: 1.5em 0 0.5em 0;
+    color: rgb(55, 53, 47);
+  }
+
+  .dark .notion-editor h1 {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .notion-editor h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1.2em 0 0.4em 0;
+    color: rgb(55, 53, 47);
+  }
+
+  .dark .notion-editor h2 {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .notion-editor h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1em 0 0.3em 0;
+    color: rgb(55, 53, 47);
+  }
+
+  .dark .notion-editor h3 {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .notion-tag {
+    background: rgba(59, 130, 246, 0.1);
+    color: rgb(59, 130, 246);
+    padding: 0.125em 0.375em;
+    border-radius: 0.375em;
+    font-weight: 500;
+    font-size: 0.875em;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    display: inline-block;
+    margin: 0 0.125em;
+  }
+
+  .dark .notion-tag {
+    background: rgba(59, 130, 246, 0.15);
+    color: rgb(96, 165, 250);
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .notion-editor ul, .notion-editor ol {
+    margin: 0.5em 0;
+    padding-left: 1.5em;
+  }
+
+  .notion-editor li {
+    margin: 0.25em 0;
+    padding: 0.125em 0;
+  }
+
+  .notion-editor blockquote {
+    border-left: 3px solid rgba(59, 130, 246, 0.3);
+    margin: 1em 0;
+    padding: 0.5em 0 0.5em 1em;
+    background: rgba(59, 130, 246, 0.05);
+    border-radius: 0 0.375em 0.375em 0;
+    font-style: italic;
+    color: rgba(55, 53, 47, 0.8);
+  }
+
+  .dark .notion-editor blockquote {
+    border-left-color: rgba(96, 165, 250, 0.4);
+    background: rgba(59, 130, 246, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .notion-editor strong {
+    font-weight: 600;
+    color: rgb(55, 53, 47);
+  }
+
+  .dark .notion-editor strong {
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .notion-editor em {
+    font-style: italic;
+    color: rgba(55, 53, 47, 0.8);
+  }
+
+  .dark .notion-editor em {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .notion-editor u {
+    text-decoration: underline;
+    text-decoration-color: rgba(59, 130, 246, 0.5);
+    text-underline-offset: 0.2em;
+  }
+
+  /* Placeholder stilleri */
+  .notion-editor[contenteditable]:empty:before {
+    content: '';
+    color: rgba(55, 53, 47, 0.4);
+  }
+
+  .dark .notion-editor[contenteditable]:empty:before {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Focus stilleri */
+  .notion-editor:focus {
+    outline: none;
+  }
+
+  .notion-editor:focus-visible {
+    outline: none;
+  }
+
+  /* Responsive düzenlemeler */
+  @media (max-width: 768px) {
+    .notion-title {
+      font-size: 2rem;
+    }
+
+    .notion-editor h1 {
+      font-size: 1.5rem;
+    }
+
+    .notion-editor h2 {
+      font-size: 1.25rem;
+    }
+
+    .notion-editor h3 {
+      font-size: 1.125rem;
+    }
   }
 }

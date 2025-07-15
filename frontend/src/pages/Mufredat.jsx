@@ -20,46 +20,29 @@ import { curriculum } from '../data/curriculum';
 
 const Mufredat = () => {
   const [selectedClass, setSelectedClass] = useState('1');
-  const [selectedSemester, setSelectedSemester] = useState('güz');
+  const [selectedSemester, setSelectedSemester] = useState('Güz');
   const [selectedType, setSelectedType] = useState('all'); // 'all', 'zorunlu', 'seçmeli'
   const [expandedCourses, setExpandedCourses] = useState(new Set());
 
-  // Müfredat için dönüştürücü fonksiyon (güz/bahar -> Güz/Bahar)
-  const getMufredatData = () => {
-    const convertedCurriculum = {};
-    Object.keys(curriculum).forEach(classKey => {
-      convertedCurriculum[classKey] = {};
-      Object.keys(curriculum[classKey]).forEach(semester => {
-        const semesterKey = semester.toLowerCase();
-        convertedCurriculum[classKey][semesterKey] = {
-          zorunlu: curriculum[classKey][semester],
-          seçmeli: [] // Şimdilik seçmeli dersler yok
-        };
-      });
-    });
-    return convertedCurriculum;
-  };
-
-  const curriculumData = getMufredatData();
-
   const getFilteredCourses = () => {
-    const semesterData = curriculumData[selectedClass]?.[selectedSemester];
+    const semesterData = curriculum[selectedClass]?.[selectedSemester];
     if (!semesterData) return [];
 
     if (selectedType === 'zorunlu') {
-      return semesterData.zorunlu.map(course => ({ name: course, type: 'zorunlu' }));
+      return semesterData.zorunlu.map(course => ({ 
+        name: course, 
+        type: course.includes('Üniversite Seçmeli Ders') ? 'usd' : 'zorunlu' 
+      }));
     } else if (selectedType === 'seçmeli') {
       return semesterData.seçmeli.map(course => ({ name: course, type: 'seçmeli' }));
     } else {
       const allCourses = [
-        ...semesterData.zorunlu.map(course => ({ name: course, type: 'zorunlu' })),
+        ...semesterData.zorunlu.map(course => ({ 
+          name: course, 
+          type: course.includes('Üniversite Seçmeli Ders') ? 'usd' : 'zorunlu' 
+        })),
         ...semesterData.seçmeli.map(course => ({ name: course, type: 'seçmeli' }))
       ];
-      
-      // USD derslerini ekle (sadece 3. sınıf için)
-      if (selectedClass === '3' && semesterData.usd) {
-        allCourses.push(...semesterData.usd.map(course => ({ name: course, type: 'usd' })));
-      }
       
       return allCourses;
     }
@@ -76,7 +59,7 @@ const Mufredat = () => {
   };
 
   const getSemesterLabel = (semester) => {
-    return semester === 'güz' ? 'Güz Dönemi' : 'Bahar Dönemi';
+    return semester === 'Güz' ? 'Güz Dönemi' : 'Bahar Dönemi';
   };
 
   const getCourseTypeColor = (type, courseName = '') => {
@@ -98,7 +81,7 @@ const Mufredat = () => {
 
   const getCourseTypeIcon = (type, courseName = '') => {
     if (courseName === 'Staj') {
-      return <Award className="h-4 w-4" />;
+      return <Target className="h-4 w-4" />;
     }
     
     switch (type) {
@@ -107,7 +90,7 @@ const Mufredat = () => {
       case 'seçmeli':
         return <Star className="h-4 w-4" />;
       case 'usd':
-        return <GraduationCap className="h-4 w-4" />;
+        return <Award className="h-4 w-4" />;
       default:
         return <BookOpen className="h-4 w-4" />;
     }
@@ -186,7 +169,7 @@ const Mufredat = () => {
                   Dönem
                 </label>
                 <div className="grid grid-cols-1 gap-1.5">
-                  {['güz', 'bahar'].map(semester => (
+                  {['Güz', 'Bahar'].map(semester => (
                     <button
                       key={semester}
                       onClick={() => setSelectedSemester(semester)}
@@ -214,8 +197,11 @@ const Mufredat = () => {
                     { key: 'zorunlu', label: 'Zorunlu', icon: CheckCircle },
                     { key: 'seçmeli', label: 'Seçmeli', icon: Star }
                   ].map(type => {
-                    // 1. sınıfta seçmeli ders yok, butonu disable yap
-                    const isDisabled = type.key === 'seçmeli' && selectedClass === '1';
+                    // Hangi türlerin hangi sınıflarda aktif olacağını belirle
+                    let isDisabled = false;
+                    if (type.key === 'seçmeli' && selectedClass === '1') {
+                      isDisabled = true; // 1. sınıfta seçmeli ders yok
+                    }
                     
                     return (
                       <button
@@ -258,6 +244,24 @@ const Mufredat = () => {
                 </span>
               </div>
             </div>
+          </div>
+          
+          {/* Seçmeli Ders Bilgisi */}
+          <div className="mt-2 pt-2 border-t border-blue-200/20 dark:border-blue-800/20">
+            <span className="text-xs text-slate-600 dark:text-slate-400">
+              {(() => {
+                if (selectedClass === '1') {
+                  return 'Bu dönemde seçmeli ders bulunmamaktadır.';
+                } else if (selectedClass === '2') {
+                  return 'Bu dönemde 1 seçmeli ders alınır.';
+                } else if (selectedClass === '3') {
+                  return 'Bu dönemde 2 seçmeli + 1 üniversite seçmeli ders alınır.';
+                } else if (selectedClass === '4') {
+                  return 'Bu dönemde 3 seçmeli ders alınır.';
+                }
+                return '';
+              })()}
+            </span>
           </div>
         </div>
 
@@ -319,14 +323,14 @@ const Mufredat = () => {
                       💡 Bu seçmeli dersi almak için danışmanınızla görüşünüz.
                     </div>
                   )}
-                  {course.type === 'usd' && (
-                    <div className="mt-2 text-xs text-yellow-600 dark:text-yellow-400 font-medium">
-                      🎓 Bu üniversite seçmeli dersi tüm üniversite derslerinden seçilebilir.
-                    </div>
-                  )}
                   {course.name === 'Staj' && (
                     <div className="mt-2 text-xs text-orange-600 dark:text-orange-400 font-medium">
                       💼 Staj dersi için uygun işyeri bulmanız ve staj koordinatörüyle iletişime geçmeniz gerekmektedir.
+                    </div>
+                  )}
+                  {course.type === 'usd' && (
+                    <div className="mt-2 text-xs text-yellow-600 dark:text-yellow-400 font-medium">
+                      🎓 Bu üniversite seçmeli dersi tüm üniversite derslerinden seçilebilir.
                     </div>
                   )}
                 </div>

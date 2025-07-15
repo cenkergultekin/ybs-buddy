@@ -11,6 +11,13 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen">
+        {/* Teknolojik arkaplan efektleri */}
+        <div className="tech-particles"></div>
+        <div className="tech-particles" style={{ animationDelay: '-7s', animationDuration: '18s' }}></div>
+        <div className="tech-particles" style={{ animationDelay: '-12s', animationDuration: '22s' }}></div>
+        
+        <div className="light-wave"></div>
+        
         <Navbar />
         <PageTransition>
           <Routes>

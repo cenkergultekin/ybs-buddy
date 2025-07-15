@@ -14,6 +14,100 @@ import {
   ClipboardDocumentListIcon
 } from '@heroicons/react/24/outline';
 
+// Logo neon animation styles
+const logoNeonStyles = `
+  @keyframes neon-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes mode-transition-glow {
+    0% { 
+      box-shadow: 0 0 5px #3ec3d3, 0 0 10px #3ec3d3, 0 0 15px #3ec3d3;
+    }
+    50% { 
+      box-shadow: 0 0 10px #3ec3d3, 0 0 20px #3ec3d3, 0 0 30px #3ec3d3;
+    }
+    100% { 
+      box-shadow: 0 0 5px #3ec3d3, 0 0 10px #3ec3d3, 0 0 15px #3ec3d3;
+    }
+  }
+
+
+
+  .logo-neon-container {
+    transition: all 0.5s ease-in-out;
+  }
+
+  .logo-neon-container.theme-transitioning {
+    animation: mode-transition-glow 0.8s ease-in-out;
+  }
+
+  .logo-neon-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: conic-gradient(
+      from 0deg,
+      transparent 75%,
+      #3ec3d3 82%,
+      #3ec3d3 88%,
+      transparent 95%
+    );
+    border-radius: 50%;
+    mask: radial-gradient(circle, transparent 80%, black 83%, black 100%);
+    -webkit-mask: radial-gradient(circle, transparent 80%, black 83%, black 100%);
+    animation: neon-rotate 4s linear infinite;
+    animation-delay: 2s;
+    z-index: 10;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  .logo-neon-container::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: conic-gradient(
+      from 180deg,
+      transparent 80%,
+      rgba(62, 195, 211, 0.6) 85%,
+      rgba(62, 195, 211, 0.9) 90%,
+      transparent 95%
+    );
+    border-radius: 50%;
+    mask: radial-gradient(circle, transparent 82%, black 85%, black 100%);
+    -webkit-mask: radial-gradient(circle, transparent 82%, black 85%, black 100%);
+    animation: neon-rotate 4s linear infinite reverse;
+    animation-delay: 1s;
+    z-index: 10;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  .logo-neon-container.theme-transitioning::before {
+    mask: radial-gradient(circle, transparent 75%, black 78%, black 100%);
+    -webkit-mask: radial-gradient(circle, transparent 75%, black 78%, black 100%);
+    box-shadow: 0 0 15px #3ec3d3;
+  }
+
+  .logo-neon-container.theme-transitioning::after {
+    mask: radial-gradient(circle, transparent 77%, black 80%, black 100%);
+    -webkit-mask: radial-gradient(circle, transparent 77%, black 80%, black 100%);
+    box-shadow: 0 0 10px rgba(62, 195, 211, 0.7);
+  }
+
+  .logo-neon-container img {
+    transition: all 0.5s ease-in-out;
+  }
+`;
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
@@ -36,6 +130,15 @@ function Navbar() {
   const toggleDarkMode = () => {
     const newDarkMode = !isDark;
     setIsDark(newDarkMode);
+    
+    // Theme geçiş efekti için logo container'ına class ekle
+    const logoContainer = document.querySelector('.logo-neon-container');
+    if (logoContainer) {
+      logoContainer.classList.add('theme-transitioning');
+      setTimeout(() => {
+        logoContainer.classList.remove('theme-transitioning');
+      }, 800); // Animasyon süresi ile eşleş
+    }
     
     if (newDarkMode) {
       document.documentElement.classList.add('dark');
@@ -69,6 +172,9 @@ function Navbar() {
 
   return (
     <>
+      {/* Logo Neon Animation Styles */}
+      <style dangerouslySetInnerHTML={{ __html: logoNeonStyles }} />
+      
       {/* Mobile Menu Backdrop */}
       {isOpen && (
         <div 
@@ -94,21 +200,28 @@ function Navbar() {
                   navigate("/");
                 }}
               >
-                <div className="relative w-8 h-8 lg:w-10 lg:h-10 rounded-full overflow-hidden bg-transparent">
+                <div className="relative w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/90 dark:bg-[#110f2c]/90 backdrop-blur-sm border border-white/50 dark:border-[#110f2c]/70 shadow-lg shadow-blue-500/20 dark:shadow-purple-400/20 hover:shadow-xl hover:shadow-blue-500/30 dark:hover:shadow-purple-400/30 transition-all duration-300 flex items-center justify-center logo-neon-container">
+                  {/* Dark Mode Logo */}
                   <img 
-                    src="/u6718478283_A_minimal_professional_single-line_vector_icon_lo_f44348c4-9f8a-4c77-82f1-260b518d4b3b_0.png" 
+                    src="/ybs-buddy-icon-dm.png" 
                     alt="YBS Buddy Logo" 
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-300 drop-shadow-lg dark:brightness-100 brightness-0 dark:invert-0 invert scale-150"
-                    style={{
-                      filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))'
-                    }}
-                    onError={(e) => {
-                      // Fallback to briefcase icon if image fails to load
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'block';
-                    }}
+                    className={`w-8 h-8 lg:w-9 lg:h-9 object-contain group-hover:scale-110 transition-all duration-300 ${isDark ? 'block' : 'hidden'}`}
+                    style={{ transform: 'translateX(1px)' }}
                   />
-                  <BriefcaseIcon className="w-6 h-6 lg:w-8 lg:h-8 text-slate-600 dark:text-slate-400 group-hover:scale-105 transition-transform duration-300 drop-shadow-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" style={{ display: 'none' }} />
+                  {/* Light Mode Logo */}
+                  <img 
+                    src="/ybs-buddy-icon-lm.png" 
+                    alt="YBS Buddy Logo" 
+                    className={`w-8 h-8 lg:w-9 lg:h-9 object-contain group-hover:scale-110 transition-all duration-300 ${!isDark ? 'block' : 'hidden'}`}
+                    style={{ transform: 'translateX(1px)' }}
+                  />
+                  {/* Loading Spinner - Always Available */}
+                  <img 
+                    src="/ybs-buddy-loading.gif" 
+                    alt="Loading..." 
+                    className="absolute w-4 h-4 lg:w-5 lg:h-5 opacity-0 pointer-events-none transition-opacity duration-300"
+                    id="navbar-loading-spinner"
+                  />
                 </div>
               </Link>
               <h1 className="text-lg sm:text-xl lg:text-2xl font-black whitespace-nowrap gradient-premium">YBS BUDDY</h1>

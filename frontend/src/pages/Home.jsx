@@ -59,7 +59,7 @@ const Home = () => {
               isVisible('hero') ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
             }`}>
               <Star className="h-4 w-4 mr-2 text-blue-600 dark:text-blue-400" />
-              <span className="text-slate-700 dark:text-slate-300 text-sm">Yönetim Bilişim Sistemleri • Professional Platform</span>
+              <span className="text-slate-700 dark:text-slate-300 text-sm">Yönetim Bilişim Sistemleri • Profesyonel Gelişim Platformu</span>
             </div>
             
             {/* Main Heading */}
@@ -73,8 +73,8 @@ const Home = () => {
             <p className={`text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-6 leading-relaxed transition-all duration-700 delay-600 ${
               isVisible('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}>
-              <strong className="text-slate-800 dark:text-slate-200">Yönetim Bilişim Sistemleri</strong> alanında uzmanlaşarak, 
-              teknoloji ve stratejiyi harmanlayan geleceğin 
+              <strong className="text-slate-800 dark:text-slate-200">Yönetim Bilişim Sistemleri öğrencileri için </strong> alan uzmanlığı kazandıran, 
+              teknoloji ve stratejiyi harmanlayan, geleceğin 
               <span className="text-blue-600 dark:text-blue-400"> dijital liderlerini </span>
               yetiştiren kapsamlı eğitim ekosistemi.
             </p>
@@ -86,7 +86,7 @@ const Home = () => {
               <div className="inline-flex items-center px-4 py-2 feature-card border-2 border-blue-200/30 dark:border-blue-700/30">
                 <div className="w-2 h-2 rounded-full mr-2 bg-gradient-to-br from-blue-500 to-cyan-500 shadow-sm shadow-blue-500/40"></div>
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                  📍 Şu an için Bandırma Onyedi Eylül Üniversitesi bazında çalışıyoruz :)
+                  Şu an için öğrencisi olduğumuz BANÜ bazında faaliyet gösteriyoruz :)
                 </span>
               </div>
             </div>
@@ -120,7 +120,7 @@ const Home = () => {
             }`}>
               <div className="w-2 h-2 rounded-full mr-3 bg-gradient-to-br from-blue-500 to-cyan-500 shadow-sm shadow-blue-500/40"></div>
               <span className="text-base font-semibold text-slate-700 dark:text-slate-300">
-                Management Information Systems • Academic Discipline
+                YBS • Tanımlama
               </span>
             </div>
             
@@ -133,8 +133,8 @@ const Home = () => {
               isVisible('ybs-definition') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}>
               <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                <strong className="text-blue-600 dark:text-blue-400">21. yüzyılın en stratejik disiplini:</strong> Teknoloji ve yönetim biliminin mükemmel entegrasyonu ile 
-                <strong className="text-teal-600 dark:text-teal-400"> dijital çağın lider yöneticilerini</strong> yetiştiren kapsamlı eğitim programı.
+                <strong className="text-blue-600 dark:text-blue-400">21. yüzyılın en stratejik disiplini:</strong> Teknoloji ve yönetim biliminin entegrasyonu ile 
+                <strong className="text-teal-600 dark:text-teal-400"> dijital çağın lider yöneticilerini</strong> yetiştiren kapsamlı sistemin kendisidir.
               </p>
               
               <div className={`bg-gradient-to-br from-slate-50/90 via-blue-50/80 to-indigo-50/90 dark:from-slate-800/50 dark:via-slate-800/60 dark:to-indigo-950/50 rounded-2xl p-6 border border-slate-200/40 dark:border-slate-700/40 shadow-lg backdrop-blur-sm transition-all duration-700 delay-800 ${
@@ -217,7 +217,7 @@ const Home = () => {
               </h2>
               <p className="text-base text-premium max-w-3xl mx-auto">
                 YBS mezunları <strong style={{color: 'var(--electric-blue)'}}>teknoloji ve iş dünyasının kesişiminde </strong> 
-                liderlik pozisyonlarında görev alırlar
+                liderlik pozisyonlarında görev alırlar.
               </p>
             </div>
 
@@ -228,7 +228,7 @@ const Home = () => {
                   <span className="text-xl">🔧</span>
                 </div>
                 <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-2 text-base">Sistem Mimarı & Analisti</h4>
-                <p className="text-xs text-slate-600 dark:text-slate-400">Kurumsal sistem tasarımı, iş süreç analizi, ERP implementasyonu ve sistem entegrasyonu alanlarında uzmanlaşır</p>
+                <p className="text-xs text-slate-600 dark:text-slate-400">Kurumsal sistem tasarımı, iş süreç analizi, ERP implementasyonu ve sistem entegrasyonu alanlarında uzmanlaşır.</p>
               </div>
 
               {/* Veri Bilimi ve İş Zekası */}
@@ -264,7 +264,7 @@ const Home = () => {
                   <span className="text-xl">🔐</span>
                 </div>
                 <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-2 text-base">Siber Güvenlik Uzmanı</h4>
-                <p className="text-xs text-slate-600 dark:text-slate-400">Bilgi güvenliği politikaları, risk yönetimi, güvenlik denetimi ve kurumsal güvenlik stratejilerinde uzmanlaşır</p>
+                <p className="text-xs text-slate-600 dark:text-slate-400">Bilgi güvenliği politikaları, risk yönetimi, güvenlik denetimi ve kurumsal güvenlik stratejilerinde uzmanlaşır.</p>
               </div>
 
               {/* İş Geliştirme Uzmanı */}
@@ -273,7 +273,7 @@ const Home = () => {
                   <span className="text-xl">💼</span>
                 </div>
                 <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-2 text-base">İş Geliştirme & Stratejist</h4>
-                <p className="text-xs text-slate-600 dark:text-slate-400">Teknoloji şirketlerinde iş geliştirme, stratejik ortaklıklar ve kurumsal satış süreçlerini yönetir</p>
+                <p className="text-xs text-slate-600 dark:text-slate-400">Teknoloji şirketlerinde iş geliştirme, stratejik ortaklıklar ve kurumsal satış süreçlerini yönetir.</p>
               </div>
             </div>
 
@@ -303,7 +303,7 @@ const Home = () => {
           }`}>
             <div className="inline-flex items-center px-4 py-2 mb-4 feature-card">
               <div className="w-1.5 h-1.5 rounded-full mr-2" style={{backgroundColor: 'var(--electric-blue)'}}></div>
-              <span className="text-xs font-medium" style={{color: 'var(--teal-600)'}}>Professional Technology Focus</span>
+              <span className="text-xs font-medium" style={{color: 'var(--teal-600)'}}>Teknoloji Odakları</span>
             </div>
             <h3 className="text-lg md:text-xl font-bold mb-2" style={{
               background: 'linear-gradient(135deg, var(--navy-800) 0%, var(--electric-blue) 50%, var(--teal-600) 100%)',
@@ -613,7 +613,7 @@ const Home = () => {
                           </div>
                           <div className="text-center">
                             <div className="text-sm font-bold text-slate-800 dark:text-slate-200">Geliştirme Aşamasında</div>
-                            <div className="text-xs text-slate-600 dark:text-slate-400">2024 Yılında Sizlerle</div>
+                            <div className="text-xs text-slate-600 dark:text-slate-400">2025 SonlarındaD Sizlerle</div>
                           </div>
                           <div className="flex space-x-1">
                             <div className="w-1.5 h-1.5 bg-purple-500 rounded-full animate-bounce"></div>
