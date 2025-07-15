@@ -28,15 +28,15 @@ const NotAlani = () => {
   const allTags = [];
 
   useEffect(() => {
-    // Backend'den gelecek veriler için placeholder'lar
+  // Backend'den gelecek veriler için placeholder'lar
     const folders = [
-      { id: 'personal', name: 'Kişisel', color: 'blue', count: 0 },
-      { id: 'courses', name: 'Ders Notları', color: 'green', count: 0 },
-      { id: 'projects', name: 'Proje Notları', color: 'purple', count: 0 },
-      { id: 'research', name: 'Araştırma', color: 'orange', count: 0 }
-    ];
+    { id: 'personal', name: 'Kişisel', color: 'blue', count: 0 },
+    { id: 'courses', name: 'Ders Notları', color: 'green', count: 0 },
+    { id: 'projects', name: 'Proje Notları', color: 'purple', count: 0 },
+    { id: 'research', name: 'Araştırma', color: 'orange', count: 0 }
+  ];
 
-    // Backend'den gelecek notlar - şimdilik boş array
+  // Backend'den gelecek notlar - şimdilik boş array
     const notes = [];
 
     setFolders(folders);
@@ -795,7 +795,7 @@ const NotAlani = () => {
               </div>
               
               {/* Main Editor Area */}
-              <div className="flex-1 overflow-y-auto">
+            <div className="flex-1 overflow-y-auto">
                 <div className="px-4 md:px-6 lg:px-8 py-6 md:py-8 max-w-full mx-auto">
                 <div className="relative">
                   <div

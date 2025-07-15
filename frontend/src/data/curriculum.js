@@ -6,17 +6,17 @@ export const curriculum = {
     'Güz': {
       title: '1. Sınıf Güz Dönemi',
       zorunlu: [
-        'Atatürk İlkeleri ve İnkılap Tarihi I',
-        'Kariyer Planlama',
-        'Türk Dili I',
-        'Bilgisayar Programlamaya Giriş',
-        'Matematik I',
-        'Yönetim Bilişim Sistemlerine Giriş',
-        'Davranış Bilimleri',
-        'Genel İşletme',
-        'Bilgisayar Donanımı',
-        'Yabancı Dil I (İngilizce)'
-      ],
+      'Atatürk İlkeleri ve İnkılap Tarihi I',
+      'Kariyer Planlama',
+      'Türk Dili I',
+      'Bilgisayar Programlamaya Giriş',
+      'Matematik I',
+      'Yönetim Bilişim Sistemlerine Giriş',
+      'Davranış Bilimleri',
+      'Genel İşletme',
+      'Bilgisayar Donanımı',
+      'Yabancı Dil I (İngilizce)'
+    ],
       seçmeli: [],
       staj: [],
       usd: []
@@ -24,15 +24,15 @@ export const curriculum = {
     'Bahar': {
       title: '1. Sınıf Bahar Dönemi',
       zorunlu: [
-        'Atatürk İlkeleri ve İnkılap Tarihi II',
-        'Türk Dili II',
-        'Matematik II',
-        'İnsan Bilgisayar Etkileşimi',
-        'Ofis Programları',
-        'Yönetim ve Organizasyon',
-        'Veri Yapıları',
-        'Bilgisayar Ağları ve Yönetimi',
-        'Yabancı Dil II (İngilizce)'
+      'Atatürk İlkeleri ve İnkılap Tarihi II',
+      'Türk Dili II',
+      'Matematik II',
+      'İnsan Bilgisayar Etkileşimi',
+      'Ofis Programları',
+      'Yönetim ve Organizasyon',
+      'Veri Yapıları',
+      'Bilgisayar Ağları ve Yönetimi',
+      'Yabancı Dil II (İngilizce)'
       ],
       seçmeli: [],
       staj: [],
@@ -43,42 +43,42 @@ export const curriculum = {
     'Güz': {
       title: '2. Sınıf Güz Dönemi',
       zorunlu: [
-        'Nesne Tabanlı Programlama',
-        'Veri Tabanı Yönetim Sistemleri',
-        'İstatistik',
-        'Bilgisayarlı Muhasebe',
-        'Hukukun Temel Kavramları',
+      'Nesne Tabanlı Programlama',
+      'Veri Tabanı Yönetim Sistemleri',
+      'İstatistik',
+      'Bilgisayarlı Muhasebe',
+      'Hukukun Temel Kavramları',
         'Pazarlama Yönetimi'
       ],
       seçmeli: [
-        'Akademik Türkçe',
-        'Yazılım Mimarileri',
-        'Yönetim Bilişim ve Haberleşme Sistemleri',
-        'Oyun Teorisi',
-        'Nicel Veri Analizi Uygulamaları',
-        'Grafik Tasarımı'
-      ],
+      'Akademik Türkçe',
+      'Yazılım Mimarileri',
+      'Yönetim Bilişim ve Haberleşme Sistemleri',
+      'Oyun Teorisi',
+      'Nicel Veri Analizi Uygulamaları',
+      'Grafik Tasarımı'
+    ],
       staj: [],
       usd: []
     },
     'Bahar': {
       title: '2. Sınıf Bahar Dönemi',
       zorunlu: [
-        'Görsel Programlama',
-        'İşletim Sistemleri Yönetimi',
-        'Veri Tabanı Programlama',
-        'Üretim Yönetimi',
-        'Bilişim Hukuku ve Etiği',
+      'Görsel Programlama',
+      'İşletim Sistemleri Yönetimi',
+      'Veri Tabanı Programlama',
+      'Üretim Yönetimi',
+      'Bilişim Hukuku ve Etiği',
         'Mesleki İngilizce'
       ],
       seçmeli: [
         'Akademik Türkçe',
-        'Yöneylem Araştırması',
-        'Genel Ekonomi',
-        'İşletme Enformatiği',
-        'Python Programlama',
-        'Süreç Analizi',
-        'Satranç'
+      'Yöneylem Araştırması',
+      'Genel Ekonomi',
+      'İşletme Enformatiği',
+      'Python Programlama',
+      'Süreç Analizi',
+      'Satranç'
       ],
       staj: [],
       usd: []
@@ -89,21 +89,21 @@ export const curriculum = {
       title: '3. Sınıf Güz Dönemi',
       zorunlu: [
         'Staj',
-        'Veri Madenciliği',
-        'Web Tasarım ve İnternet Programlama I',
-        'Finansal Yönetim',
+      'Veri Madenciliği',
+      'Web Tasarım ve İnternet Programlama I',
+      'Finansal Yönetim',
         'Üniversite Seçmeli Ders (Güz Dönemi)'
       ],
       seçmeli: [
-        'Toplam Kalite Yönetimi',
-        'Coğrafi Bilgi Sistemleri',
-        'Siber Güvenlik',
-        'Tedarik Zinciri Yönetimi',
-        'Karar Destek Sistemleri',
-        'Maliyet Muhasebesi',
-        'Dijital Okuryazarlık',
-        'Tüketici Davranışları'
-      ],
+      'Toplam Kalite Yönetimi',
+      'Coğrafi Bilgi Sistemleri',
+      'Siber Güvenlik',
+      'Tedarik Zinciri Yönetimi',
+      'Karar Destek Sistemleri',
+      'Maliyet Muhasebesi',
+      'Dijital Okuryazarlık',
+      'Tüketici Davranışları'
+    ],
       staj: [],
       usd: []
     },
@@ -111,20 +111,20 @@ export const curriculum = {
       title: '3. Sınıf Bahar Dönemi',
       zorunlu: [
         'Staj',
-        'Mobil Programlama',
-        'Web Tasarım ve İnternet Programlama II',
-        'Örgütsel Davranış',
+      'Mobil Programlama',
+      'Web Tasarım ve İnternet Programlama II',
+      'Örgütsel Davranış',
         'Üniversite Seçmeli Ders (Bahar Dönemi)'
       ],
       seçmeli: [
-        'Araştırma Yöntemleri',
-        'Yapay Zeka',
-        'Girişimcilik',
-        'Sistem Analizi ve Tasarımı',
-        'Yönetim Muhasebesi',
-        'Müşteri İlişkileri Yönetimi (CRM)',
-        'Örgütsel İletişim',
-        'Sektör Buluşmaları'
+      'Araştırma Yöntemleri',
+      'Yapay Zeka',
+      'Girişimcilik',
+      'Sistem Analizi ve Tasarımı',
+      'Yönetim Muhasebesi',
+      'Müşteri İlişkileri Yönetimi (CRM)',
+      'Örgütsel İletişim',
+      'Sektör Buluşmaları'
       ],
       staj: [],
       usd: []
@@ -134,43 +134,43 @@ export const curriculum = {
     'Güz': {
       title: '4. Sınıf Güz Dönemi',
       zorunlu: [
-        'Stratejik Yönetim',
-        'Ağ ve Sistem Güvenliği',
+      'Stratejik Yönetim',
+      'Ağ ve Sistem Güvenliği',
         'Veri Raporlama Uygulamaları'
       ],
       seçmeli: [
-        'UML Modelleme',
-        'Çağdaş Yönetim Yaklaşımları',
-        'Üretim-Planlama-Kontrol',
-        'Oyun Programlama',
-        'Depolama ve Envanter Yönetimi',
-        'İletişim ve Etkili Sunum Teknikleri',
-        'Zaman Serileri',
-        'Proje Yönetimi',
-        'Yazılım Sınama ve Doğrulama',
-        'İş Süreçleri Analizi'
-      ],
+      'UML Modelleme',
+      'Çağdaş Yönetim Yaklaşımları',
+      'Üretim-Planlama-Kontrol',
+      'Oyun Programlama',
+      'Depolama ve Envanter Yönetimi',
+      'İletişim ve Etkili Sunum Teknikleri',
+      'Zaman Serileri',
+      'Proje Yönetimi',
+      'Yazılım Sınama ve Doğrulama',
+      'İş Süreçleri Analizi'
+    ],
       staj: [],
       usd: []
     },
     'Bahar': {
       title: '4. Sınıf Bahar Dönemi',
       zorunlu: [
-        'İnsan Kaynakları Yönetimi',
-        'E-Ticaret ve E-Devlet',
+      'İnsan Kaynakları Yönetimi',
+      'E-Ticaret ve E-Devlet',
         'Bilişim Projesi Yönetimi'
       ],
       seçmeli: [
-        'Kurumsal Kaynak Planlama',
-        'Örgütsel Performans ve Yönetimi',
-        'Bilişim Teknolojilerinin Afet Yönetiminde Kullanımı',
-        'İş ve Sosyal Güvenlik Hukuku',
-        'Kurumsal Yönetişim',
-        'Nesnelerin İnterneti',
-        'Uluslararası İşletmecilik',
-        'Sosyal Medya',
-        'Hedef Pazar Planlama',
-        'Büyük Veri'
+      'Kurumsal Kaynak Planlama',
+      'Örgütsel Performans ve Yönetimi',
+      'Bilişim Teknolojilerinin Afet Yönetiminde Kullanımı',
+      'İş ve Sosyal Güvenlik Hukuku',
+      'Kurumsal Yönetişim',
+      'Nesnelerin İnterneti',
+      'Uluslararası İşletmecilik',
+      'Sosyal Medya',
+      'Hedef Pazar Planlama',
+      'Büyük Veri'
       ],
       staj: [],
       usd: []
